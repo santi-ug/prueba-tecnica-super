@@ -7,8 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Load DB connection from environment variable
 var connectionString =
     Environment.GetEnvironmentVariable("DB_CONNECTION")
-    ?? builder.Configuration.GetConnectionString("DefaultConnection")
-    ?? throw new Exception("DB_CONNECTION not set and no ConnectionString in config");
+    ?? throw new Exception("DB_CONNECTION not set");
 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseMySql(

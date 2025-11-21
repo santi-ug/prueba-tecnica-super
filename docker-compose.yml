@@ -1,0 +1,32 @@
+services:
+  db:
+    image: mariadb:11
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+    ports:
+      - "3307:3306"
+    volumes:
+      - dbdata:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      
+  api:
+    build:
+      context: ./backend
+    restart: always
+    depends_on:
+      db:
+        condition: service_healthy  # Wait for healthy, not just started
+    environment:
+      DB_CONNECTION: ${API_DB_CONNECTION}
+      ASPNETCORE_ENVIRONMENT: Development  # Add this line
+    ports:
+      - "5000:5000"
+      
+volumes:
+  dbdata:
