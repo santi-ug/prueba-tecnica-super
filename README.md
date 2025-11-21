@@ -26,7 +26,8 @@ Se utilizó Docker para contenerizar el proyecto debido a que mi OS esta en Arch
 * npm
 
 ### **DevOps***
-* Docker **2.x**
+* Docker **28.x**
+* Docker Compose **2.x**
 
 ---
 
@@ -123,3 +124,4 @@ Se preparó una estructura inicial con `docker-compose` para orquestar:
 
 * Errores con `dotnet-ef` por versiones y paquetes no disponibles
 * Dependencias debido a manejo de diferentes versiones en Arch Linux
+
