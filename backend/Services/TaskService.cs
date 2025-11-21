@@ -1,32 +1,58 @@
+using Microsoft.EntityFrameworkCore;
+using TaskApi.Data;
 using TaskApi.Models;
 
 namespace TaskApi.Services;
 
 public class TaskService
 {
-    private readonly List<TaskItem> _tasks = new();
-    private int _nextId = 1;
+    private readonly AppDbContext _db;
 
-    public IEnumerable<TaskItem> GetAll() => _tasks;
-
-    public TaskItem Add(string title)
+    public TaskService(AppDbContext db)
     {
-        var t = new TaskItem { Id = _nextId++, Title = title, Completed = false };
-        _tasks.Add(t);
-        return t;
+        _db = db;
     }
 
-    public TaskItem? Complete(int id)
+    public async Task<List<TaskItem>> GetAll()
     {
-        var t = _tasks.FirstOrDefault(x => x.Id == id);
-        if (t != null) t.Completed = true;
-        return t;
+        return await _db.Tasks
+            .OrderBy(t => t.Id)
+            .ToListAsync();
     }
 
-    public bool Delete(int id)
+    public async Task<TaskItem> Add(string title)
     {
-        var t = _tasks.FirstOrDefault(x => x.Id == id);
-        return t != null && _tasks.Remove(t);
+        var item = new TaskItem
+        {
+            Title = title.Trim(),
+            Completed = false
+        };
+
+        _db.Tasks.Add(item);
+        await _db.SaveChangesAsync();
+
+        return item;
+    }
+
+    public async Task<TaskItem?> Complete(int id)
+    {
+        var task = await _db.Tasks.FindAsync(id);
+        if (task == null) return null;
+
+        task.Completed = true;
+        await _db.SaveChangesAsync();
+
+        return task;
+    }
+
+    public async Task<bool> Delete(int id)
+    {
+        var task = await _db.Tasks.FindAsync(id);
+        if (task == null) return false;
+
+        _db.Tasks.Remove(task);
+        await _db.SaveChangesAsync();
+        return true;
     }
 }
 

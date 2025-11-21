@@ -15,26 +15,33 @@ public class TasksController : ControllerBase
     }
 
     [HttpGet]
-    public IActionResult GetAll() => Ok(_service.GetAll());
+    public async Task<IActionResult> GetAll()
+    {
+        var tasks = await _service.GetAll();
+        return Ok(tasks);
+    }
 
     [HttpPost]
-    public IActionResult Create([FromBody] dynamic body)
+    public async Task<IActionResult> Create([FromBody] dynamic body)
     {
         string title = body.title;
-        return Ok(_service.Add(title));
+        var created = await _service.Add(title);
+        return Ok(created);
     }
 
     [HttpPatch("{id}/complete")]
-    public IActionResult Complete(int id)
+    public async Task<IActionResult> Complete(int id)
     {
-        var t = _service.Complete(id);
-        return t == null ? NotFound() : Ok(t);
+        var result = await _service.Complete(id);
+        return result == null ? NotFound() : Ok(result);
     }
 
     [HttpDelete("{id}")]
-    public IActionResult Delete(int id)
+    public async Task<IActionResult> Delete(int id)
     {
-        return _service.Delete(id) ? NoContent() : NotFound();
+        return await _service.Delete(id)
+            ? NoContent()
+            : NotFound();
     }
 }
 
