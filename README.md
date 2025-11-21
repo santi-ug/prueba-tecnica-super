@@ -23,7 +23,7 @@ Se utilizó Docker para contenerizar el proyecto debido a que mi OS esta en Arch
 
 * Node.js **22.x**
 * Angular CLI 18+
-* npm
+* npm 11.6
 
 ### **DevOps***
 * Docker **28.x**
@@ -38,7 +38,7 @@ Se utilizó Docker para contenerizar el proyecto debido a que mi OS esta en Arch
 Crear una base de datos vacía llamada:
 
 ```
-tasks-db
+tasksdb
 ```
 
 ### **2.2. Configurar la cadena de conexión**
@@ -124,4 +124,6 @@ Se preparó una estructura inicial con `docker-compose` para orquestar:
 
 * Errores con `dotnet-ef` por versiones y paquetes no disponibles
 * Dependencias debido a manejo de diferentes versiones en Arch Linux
+
+
 
