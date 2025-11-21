@@ -45,25 +45,25 @@ El backend utiliza variables de entorno que se pueden ver en `env.example`.
 
 ### **3.1. Docker**
 
-1. Clonar repositorio 
+3.1.1. Clonar repositorio 
 ```
 git clone https://github.com/santi-ug/prueba-tecnica-super.git
 ```
-2. Entrar al directorio
+3.1.2. Entrar al directorio
 ```
 cd prueba-tecnica-super
 ```
-3. Abrir Docker Hub 
-4. docker compose up --build 
+3.1.3. Abrir Docker Hub 
+3.1.4. docker compose up --build 
 - docker-compose up --build (para v1.x de docker compose)
-5. Conectar a base de datos MariaDB en puerto 3307
-5.1 Las migraciones se corren automaticamente, en caso tal de que no, ejecutar `docker compose` nuevamente.
-6. Usar la aplicación en `https://localhost:4200`
+3.1.5. Conectar a base de datos MariaDB en puerto 3307
+- Las migraciones se corren automaticamente, en caso tal de que no, ejecutar `docker compose` nuevamente.
+3.1.6. Usar la aplicación en `https://localhost:4200`
 
 
-## **3.2. Manual**
+### **3.2. Manual**
 
-### **3.2.1 Base de datos**
+#### **3.2.1 Base de datos**
 
 Crear una base de datos MariaDB, vacía. Por defecto el backend recibe la base de datos llamada:
 
@@ -71,7 +71,7 @@ Crear una base de datos MariaDB, vacía. Por defecto el backend recibe la base d
 tasksdb
 ```
 
-### **3.2.2 Backend (.NET 9)**
+#### **3.2.2 Backend (.NET 9)**
 
 Dentro de la carpeta `./backend`
 Ejecutar 
@@ -80,7 +80,7 @@ dotnet restore
 dotnet run
 ```
 
-### **3.2.3. Ejecutar migraciones**
+#### **3.2.3. Ejecutar migraciones**
 
 El sistema crea automáticamente las tablas al iniciar gracias a:
 
@@ -90,7 +90,7 @@ db.Database.Migrate();
 
 No se requiere ejecutar comandos de EF Core manualmente.
 
-### **3.2.4. Angular**
+#### **3.2.4. Angular**
 
 Dentro de la carpeta `./frontend`
 ```
