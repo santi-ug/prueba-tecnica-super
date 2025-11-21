@@ -37,7 +37,7 @@ Se utilizó Docker para contenerizar el proyecto debido a que mi OS está en Arc
 El backend utiliza variables de entorno que se pueden ver en `env.example`.
 
 - En caso de utilizar Docker, se reemplazan las variables allí. 
-- En caso de **no** utilizar Docker, se reemplaza el nombre de la variable  `` por ``.
+- En caso de **no** utilizar Docker, se reemplaza el nombre de la variable  `API_DB_CONNECTION` por `DB_CONNECTION`.
 
 ---
 
