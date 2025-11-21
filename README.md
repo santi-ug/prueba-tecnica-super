@@ -43,8 +43,7 @@ tasksdb
 
 ### **2.2. Configurar la cadena de conexión**
 
-El backend utiliza una variable de entorno `DB_CONNECTION` idealmente, por cuestiones de prueba se puso `hardcoded`.
-
+El backend utiliza variables de entorno que se pueden ver en `env.example`
 
 
 ### **2.3. Ejecutar migraciones**
@@ -124,6 +123,7 @@ Se preparó una estructura inicial con `docker-compose` para orquestar:
 
 * Errores con `dotnet-ef` por versiones y paquetes no disponibles
 * Dependencias debido a manejo de diferentes versiones en Arch Linux
+
 
 
 
