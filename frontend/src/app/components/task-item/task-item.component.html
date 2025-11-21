@@ -1,0 +1,21 @@
+<div (click)="handleClick()"
+  [class]="'flex cursor-pointer items-center gap-3 rounded-2xl bg-card px-4 py-3 transition-all duration-300 hover:bg-secondary ' + (isRemoving ? 'translate-x-[120%] opacity-0' : '')">
+
+  <button type="button" (click)="handleToggle($event)"
+    class="shrink-0 text-muted-foreground transition-colors hover:text-foreground">
+    @if (task.completed) {
+    <svg class="size-5" fill="currentColor" viewBox="0 0 24 24">
+      <path
+        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+    </svg>
+    } @else {
+    <svg class="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="10" stroke-width="2" />
+    </svg>
+    }
+  </button>
+
+  <span [class]="'flex-1 text-base text-foreground ' + (task.completed ? 'text-muted-foreground line-through' : '')">
+    {{ task.title }}
+  </span>
+</div>

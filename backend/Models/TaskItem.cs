@@ -7,11 +7,11 @@ public class TaskItem
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int Id { get; set; }
+    public int id { get; set; }
 
     [Required]
-    public string Title { get; set; } = string.Empty;
+    public string title { get; set; } = string.Empty;
 
-    public bool Completed { get; set; }
+    public bool completed { get; set; }
 }
 

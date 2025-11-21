@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using TaskApi.Models;
 using TaskApi.Services;
 
 namespace TaskApi.Controllers;
@@ -22,9 +23,9 @@ public class TasksController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> Create([FromBody] dynamic body)
+    public async Task<IActionResult> Create([FromBody] TaskItem task)
     {
-        string title = body.title;
+        string title = task.title;
         var created = await _service.Add(title);
         return Ok(created);
     }

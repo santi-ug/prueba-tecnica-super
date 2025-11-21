@@ -16,7 +16,7 @@ public class TaskService
     public async Task<List<TaskItem>> GetAll()
     {
         return await _db.Tasks
-            .OrderBy(t => t.Id)
+            .OrderBy(t => t.id)
             .ToListAsync();
     }
 
@@ -24,8 +24,8 @@ public class TaskService
     {
         var item = new TaskItem
         {
-            Title = title.Trim(),
-            Completed = false
+            title = title.Trim(),
+            completed = false
         };
 
         _db.Tasks.Add(item);
@@ -39,7 +39,7 @@ public class TaskService
         var task = await _db.Tasks.FindAsync(id);
         if (task == null) return null;
 
-        task.Completed = true;
+        task.completed = true;
         await _db.SaveChangesAsync();
 
         return task;

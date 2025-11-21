@@ -23,20 +23,20 @@ namespace TaskApi.Migrations
 
             modelBuilder.Entity("TaskApi.Models.TaskItem", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("id"));
 
-                    b.Property<bool>("Completed")
+                    b.Property<bool>("completed")
                         .HasColumnType("tinyint(1)");
 
-                    b.Property<string>("Title")
+                    b.Property<string>("title")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.HasKey("Id");
+                    b.HasKey("id");
 
                     b.ToTable("Tasks");
                 });

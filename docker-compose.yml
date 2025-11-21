@@ -27,6 +27,15 @@ services:
       ASPNETCORE_ENVIRONMENT: Development  # Add this line
     ports:
       - "5000:5000"
+
+  frontend:
+    build:
+      context: ./frontend
+    restart: always
+    depends_on:
+      - api
+    ports:
+      - "4200:80"
       
 volumes:
   dbdata:

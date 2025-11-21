@@ -1,0 +1,6 @@
+<div class="space-y-2">
+  @for (task of tasks; track task.id) {
+    <app-task-item [task]="task" (remove)="remove.emit($event)" (toggle)="toggle.emit($event)">
+    </app-task-item>
+  }
+</div>
