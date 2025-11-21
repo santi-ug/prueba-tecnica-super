@@ -1,13 +1,13 @@
 # **Monorepo Prueba Técnica**
 
-Este repositorio organiza en un solo lugar el backend desarrollado en **.NET 9 (C#)** y el frontend construido con **Angular + TailwindCSS**. 
+Este repositorio organiza en un solo lugar el backend desarrollado en **.NET 9 (C#)** y el frontend construído con **Angular + TailwindCSS**. 
 
 El proyecto está dividido en dos carpetas principales:
 
 * **backend/** – API REST en .NET 9 usando Entity Framework Core con MySQL/MariaDB.
 * **frontend/** – Aplicación Angular con TailwindCSS, consumo de la API y vista básica para gestión de tareas.
 
-Se utilizó Docker para contenerizar el proyecto debido a que mi OS esta en Arch Linux y herramientas del ecosistema .NET y EF Core podrian cauasr problemas al intentnar correr el proyecto en Windows. 
+Se utilizó Docker para contenerizar el proyecto debido a que mi OS está en Arch Linux y herramientas del ecosistema .NET y EF Core podrían cauasr problemas al intentnar correr el proyecto en Windows. 
 
 ---
 
@@ -70,7 +70,7 @@ La API quedará disponible en:
 http://localhost:5000
 ```
 
-Y se podra visualizar el swagger donde quedo documentado el API:
+Y se podrá visualizar el swagger donde quedó documentado el API:
 
 ```
 http://localhost:5000/swagger
