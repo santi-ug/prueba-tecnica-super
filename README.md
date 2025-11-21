@@ -76,6 +76,7 @@ tasksdb
 Dentro de la carpeta `./backend`
 Ejecutar 
 ```
+dotnet restore 
 dotnet run
 ```
 
@@ -93,8 +94,12 @@ No se requiere ejecutar comandos de EF Core manualmente.
 
 Dentro de la carpeta `./frontend`
 ```
+npm i 
 ng serve 
 ```
+
+
+## **4. Visualización y Uso**
 
 La API quedará disponible en:
 
@@ -103,7 +108,6 @@ http://localhost:5000
 ```
 
 Y se podrá visualizar el swagger donde quedó documentado el API:
-
 ```
 http://localhost:5000/swagger
 
@@ -113,8 +117,7 @@ http://localhost:5000/swagger
 * `DELETE /tasks/:id`
 ```
 
-Acceso a:
-
+La aplicación web, se podrá ver y utilizar en:
 ```
 http://localhost:4200
 ```
@@ -123,7 +126,7 @@ La aplicación consume directamente el endpoint del backend (`http://localhost:5
 
 ---
 
-## **4. Estructura del repositorio**
+## **5. Estructura del repositorio**
 
 ```
 /
@@ -140,7 +143,7 @@ La aplicación consume directamente el endpoint del backend (`http://localhost:5
 
 ---
 
-## **5. Sobre el uso de Docker**
+## **6. Sobre el uso de Docker**
 
 Se preparó una estructura inicial con `docker-compose` para orquestar:
 
@@ -149,7 +152,7 @@ Se preparó una estructura inicial con `docker-compose` para orquestar:
 * Angular
 
 
-## Retos:
+## **7. Retos**
 
 * Errores con `dotnet-ef` por versiones y paquetes no disponibles
 * Dependencias debido a manejo de diferentes versiones en Arch Linux
