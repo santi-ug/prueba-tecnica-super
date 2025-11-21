@@ -27,26 +27,59 @@ Se utilizó Docker para contenerizar el proyecto debido a que mi OS está en Arc
 
 ### **DevOps***
 * Docker **28.x**
+* Docker Desktop (Windows) 
 * Docker Compose **2.x**
 
 ---
 
-## **2. Configuración del backend (.NET 9)**
+## **2. Configuración**
 
-### **2.1. Crear la base de datos**
+El backend utiliza variables de entorno que se pueden ver en `env.example`.
 
-Crear una base de datos vacía llamada:
+- En caso de utilizar Docker, se reemplazan las variables allí. 
+- En caso de **no** utilizar Docker, se reemplaza el nombre de la variable  `` por ``.
+
+---
+
+## **3. Ejecución**
+
+### **3.1. Docker**
+
+1. Clonar repositorio 
+```
+git clone https://github.com/santi-ug/prueba-tecnica-super.git
+```
+2. Entrar al directorio
+```
+cd prueba-tecnica-super
+```
+3. Abrir Docker Hub 
+4. docker compose up --build 
+- docker-compose up --build (para v1.x de docker compose)
+5. Conectar a base de datos MariaDB en puerto 3307
+5.1 Las migraciones se corren automaticamente, en caso tal de que no, ejecutar `docker compose` nuevamente.
+6. Usar la aplicación en `https://localhost:4200`
+
+
+## **3.2. Manual**
+
+### **3.2.1 Base de datos**
+
+Crear una base de datos MariaDB, vacía. Por defecto el backend recibe la base de datos llamada:
 
 ```
 tasksdb
 ```
 
-### **2.2. Configurar la cadena de conexión**
+### **3.2.2 Backend (.NET 9)**
 
-El backend utiliza variables de entorno que se pueden ver en `env.example`
+Dentro de la carpeta `./backend`
+Ejecutar 
+```
+dotnet run
+```
 
-
-### **2.3. Ejecutar migraciones**
+### **3.2.3. Ejecutar migraciones**
 
 El sistema crea automáticamente las tablas al iniciar gracias a:
 
@@ -56,12 +89,11 @@ db.Database.Migrate();
 
 No se requiere ejecutar comandos de EF Core manualmente.
 
-### **2.4. Ejecutar la Proyecto**
+### **3.2.4. Angular**
 
-Desde la carpeta root:
-
+Dentro de la carpeta `./frontend`
 ```
-docker compose up --build
+ng serve 
 ```
 
 La API quedará disponible en:
@@ -80,8 +112,6 @@ http://localhost:5000/swagger
 * `PATCH /tasks/:id/toggle`
 * `DELETE /tasks/:id`
 ```
-
-## **3. Configuración del frontend (Angular)**
 
 Acceso a:
 
