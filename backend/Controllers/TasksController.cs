@@ -30,10 +30,10 @@ public class TasksController : ControllerBase
         return Ok(created);
     }
 
-    [HttpPatch("{id}/complete")]
-    public async Task<IActionResult> Complete(int id)
+    [HttpPatch("{id}/toggle")]
+    public async Task<IActionResult> Toggle(int id)
     {
-        var result = await _service.Complete(id);
+        var result = await _service.Toggle(id);
         return result == null ? NotFound() : Ok(result);
     }
 

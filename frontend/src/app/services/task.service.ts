@@ -20,7 +20,7 @@ export class TaskService {
   }
 
   updateTask(id: number, task: Task): Observable<void> {
-    return this.http.put<void>(`${this.apiUrl}/${id}`, task);
+    return this.http.patch<void>(`${this.apiUrl}/${id}/toggle`, task);
   }
 
   deleteTask(id: number): Observable<void> {

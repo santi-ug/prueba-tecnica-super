@@ -34,12 +34,11 @@ public class TaskService
         return item;
     }
 
-    public async Task<TaskItem?> Complete(int id)
+    public async Task<TaskItem?> Toggle(int id)
     {
         var task = await _db.Tasks.FindAsync(id);
         if (task == null) return null;
-
-        task.completed = true;
+        task.completed = !task.completed;
         await _db.SaveChangesAsync();
 
         return task;

@@ -15,8 +15,8 @@ export class TaskItemComponent {
 
   isRemoving = false;
 
-  handleClick() {
-    if (!this.task.id) return; // si no existe, chao
+  handleDelete(event: Event) {
+    if (!this.task.id) return;
 
     this.isRemoving = true;
     setTimeout(() => {
@@ -25,7 +25,6 @@ export class TaskItemComponent {
   }
 
   handleToggle(event: Event) {
-    event.stopPropagation();
     if (this.task.id) {
       this.toggle.emit(this.task.id);
     }
