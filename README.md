@@ -4,7 +4,7 @@ Este repositorio organiza en un solo lugar el backend desarrollado en **.NET 9 (
 
 El proyecto está dividido en dos carpetas principales:
 
-* **backend/** – API REST en .NET 8 usando Entity Framework Core con MySQL/MariaDB.
+* **backend/** – API REST en .NET 9 usando Entity Framework Core con MySQL/MariaDB.
 * **frontend/** – Aplicación Angular con TailwindCSS, consumo de la API y vista básica para gestión de tareas.
 
 Se utilizó Docker para contenerizar el proyecto debido a que mi OS esta en Arch Linux y herramientas del ecosistema .NET y EF Core podrian cauasr problemas al intentnar correr el proyecto en Windows. 
@@ -124,6 +124,7 @@ Se preparó una estructura inicial con `docker-compose` para orquestar:
 
 * Errores con `dotnet-ef` por versiones y paquetes no disponibles
 * Dependencias debido a manejo de diferentes versiones en Arch Linux
+
 
 
 
